@@ -88,16 +88,54 @@ return (
 
     {/* Contact & Careers */}
     <div>
-      <h3 className="text-white font-semibold text-lg mb-4">Get in Touch</h3>
-      <ul className="space-y-3 text-sm">
-        <li>📍  7th floor, Office no 702, Vipul Business Park, Central Park II, Sector 48, Gurugram, Haryana 122018</li>
-        <li>📧 contact@unibcomp.com</li>
-        <li>📞 +91 90000 00000</li>
-        <li className="hover:text-orange-500 cursor-pointer mt-2">
-        <Link to={"/careers"}>  View Open Positions →</Link>
-        </li>
-      </ul>
-    </div>
+  <h3 className="text-white font-semibold text-lg mb-4">Get in Touch</h3>
+
+  <ul className="space-y-3 text-sm text-gray-300">
+    {/* Address */}
+    <li>
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=Vipul+Business+Park+Sector+48+Gurugram"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-blue-500 hover:underline transition cursor-pointer"
+      >
+        📍 7th floor, Office no 702, Vipul Business Park, Central Park II,
+        Sector 48, Gurugram, Haryana 122018
+      </a>
+    </li>
+
+    {/* Email */}
+    <li>
+      <a
+        href="mailto:contact@unibcomp.com"
+        className="hover:text-blue-500 hover:underline transition cursor-pointer"
+      >
+        📧 contact@unibcomp.com
+      </a>
+    </li>
+
+    {/* Phone */}
+    <li>
+      <a
+        href="tel:+918901011414"
+        className="hover:text-blue-500 hover:underline transition cursor-pointer"
+      >
+        📞 +91 8901011414
+      </a>
+    </li>
+
+    {/* Careers */}
+    <li className="mt-2">
+      <Link
+        to="/careers"
+        className="hover:text-orange-500 hover:underline transition cursor-pointer"
+      >
+        View Open Positions →
+      </Link>
+    </li>
+  </ul>
+</div>
+
   </div>
 
   {/* Newsletter */}

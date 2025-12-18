@@ -11,10 +11,7 @@ export default function Apply() {
      
 
       await emailjs.sendForm(
-       "service_s62q91v",   // 🔹 Replace with your actual Service ID
-        "template_bw6x0eo",  // 🔹 Replace with your actual Template ID
-        e.target,            // 🔹 Form reference
-        "8hDAUzc3aFKG503iB"    // 🔹 Replace with your actual Public Key
+        
       );
 
       alert("Application submitted successfully ✅");

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 // Hero slides with background images
 const heroSlides = [
   {
@@ -23,6 +23,18 @@ const heroSlides = [
   },
 ];
 
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0 },
+};
+
+const stagger = {
+  hidden: {},
+  show: {
+    transition: { staggerChildren: 0.15 },
+  },
+};
 export default function Home() {
   const [current, setCurrent] = useState(0);
 
@@ -62,8 +74,18 @@ export default function Home() {
         ))}
 
         {/* Hero Content */}
+       
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-center gap-12 h-full">
-          <div className="md:w-1/2 text-center md:text-left text-white flex flex-col justify-center h-full">
+     
+     
+          <motion.div     
+           key={current}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            transition={{ duration: 0.8 }}
+          
+            className="md:w-1/2 text-center md:text-left text-white flex flex-col justify-center h-full">
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
               {heroSlides[current].title}
             </h1>
@@ -82,7 +104,7 @@ export default function Home() {
                 Our Services
               </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
 
       
@@ -99,9 +121,16 @@ export default function Home() {
   <div className="absolute -top-40 -left-40 w-96 h-96 bg-orange-600/20 rounded-full blur-3xl"></div>
   <div className="absolute bottom-0 -right-40 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
 
+         
   <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 relative z-10">
 
     {/* LEFT CONTENT */}
+     <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
     <div className="flex flex-col justify-center">
       <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
         Services that help your <br />
@@ -118,38 +147,51 @@ export default function Home() {
         <p>✔ Long-term technical support</p>
       </div>
     </div>
+    </motion.div>
 
     {/* RIGHT SERVICES FLOW */}
-    <div className="space-y-6">
-
-      {[
-        {
-          no: "01",
-          title: "Web Development",
-          desc: "High-performance, SEO-friendly and scalable websites built with modern frameworks."
-        },
-        {
-          no: "02",
-          title: "Mobile App Development",
-          desc: "Android & iOS applications focused on speed, security and user experience."
-        },
-        {
-          no: "03",
-          title: "UI / UX Design",
-          desc: "Clean, intuitive and conversion-focused designs for real users."
-        },
-        {
-          no: "04",
-          title: "Custom Software",
-          desc: "Tailor-made enterprise solutions that fit your exact business workflow."
-        },
-        {
-          no: "05",
-          title: "Cloud & DevOps",
-          desc: "Scalable cloud infrastructure with monitoring, CI/CD and security."
-        },
+ 
+    <motion.div 
+     variants={stagger}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+    
+    className="space-y-6">
+ {[
+              {
+                no: "01",
+                title: "Web Development",
+                desc:
+                  "High-performance, SEO-friendly and scalable websites built with modern frameworks.",
+              },
+              {
+                no: "02",
+                title: "Mobile App Development",
+                desc:
+                  "Android & iOS applications focused on speed, security and user experience.",
+              },
+              {
+                no: "03",
+                title: "UI / UX Design",
+                desc:
+                  "Clean, intuitive and conversion-focused designs for real users.",
+              },
+              {
+                no: "04",
+                title: "Custom Software",
+                desc:
+                  "Tailor-made enterprise solutions that fit your exact business workflow.",
+              },
+              {
+                no: "05",
+                title: "Cloud & DevOps",
+                desc:
+                  "Scalable cloud infrastructure with monitoring, CI/CD and security.",
+              },
       ].map((item, i) => (
-        <div
+        <motion.div
+        variants={fadeUp}
           key={i}
           className="group relative bg-gray-900/70 backdrop-blur-xl border border-gray-800 rounded-2xl p-6 hover:border-orange-500 transition duration-300"
         >
@@ -164,11 +206,13 @@ export default function Home() {
           <p className="mt-2 text-gray-400 text-sm leading-relaxed">
             {item.desc}
           </p>
-        </div>
+        </motion.div>
       ))}
 
-    </div>
+    
+    </motion.div>
   </div>
+  
 </section>
 
 
@@ -183,7 +227,15 @@ export default function Home() {
   <div className="absolute top-0 left-1/3 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl"></div>
   <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
 
-  <div className="max-w-7xl mx-auto px-6 relative z-10">
+  <motion.div 
+     
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              transition={{ delay:  0.1 }}
+  
+  className="max-w-7xl mx-auto px-6 relative z-10">
     
     {/* Heading */}
     <div className="text-center max-w-3xl mx-auto mb-16">
@@ -224,7 +276,14 @@ export default function Home() {
           desc: "Dedicated support & maintenance for long-term product success."
         },
       ].map((item, i) => (
-        <div
+        <motion.div
+         
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+  
           key={i}
           className="group relative bg-gray-900/70 backdrop-blur-xl border border-gray-800 rounded-3xl p-8 hover:border-orange-500 transition duration-300"
         >
@@ -243,11 +302,11 @@ export default function Home() {
               {item.desc}
             </p>
           </div>
-        </div>
+        </motion.div>
       ))}
 
     </div>
-  </div>
+  </motion.div>
 </section>
 
 
@@ -259,7 +318,14 @@ export default function Home() {
   <div className="absolute -top-40 left-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-3xl"></div>
   <div className="absolute bottom-0 -right-40 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
 
-  <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+  <motion.div 
+     variants={fadeUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              transition={{ delay:  0.1 }}
+  
+  className="relative z-10 max-w-7xl mx-auto px-6 text-center">
     <h2 className="text-4xl md:text-5xl font-extrabold text-white">
       Our <span className="text-orange-500">Portfolio</span>
     </h2>
@@ -277,7 +343,12 @@ export default function Home() {
         { title: "Cloud Dashboard", category: "Cloud Solutions", img: "https://s3-alpha.figma.com/hub/file/2258751111437261526/19d912f5-f4d7-42f3-89d4-f318908b0609-cover.png" },
         { title: "E-Learning Platform", category: "Web Development", img: "https://cdn.dribbble.com/userupload/12346891/file/original-81c526a6b7852ac7c24af16126b8fba5.png?format=webp&resize=400x300&vertical=center" },
       ].map((project, i) => (
-        <div
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              whileHover={{ y: -10 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
           key={i}
           className="group relative overflow-hidden rounded-3xl bg-gray-900/70 backdrop-blur-xl
                      border border-gray-800 hover:border-orange-500
@@ -299,14 +370,16 @@ export default function Home() {
               {project.category}
             </p>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
-  </div>
+  </motion.div>
 </section>
 
       {/* ================= CTA ================= */}
-   <section className="relative py-28 overflow-hidden
+ 
+
+<section className="relative py-28 overflow-hidden
   bg-gradient-to-br from-orange-500 via-blue-400 to-orange-600">
 
   {/* soft dark overlay */}
@@ -315,7 +388,14 @@ export default function Home() {
   {/* subtle glow */}
   <div className="absolute -top-40 left-1/3 w-96 h-96 bg-black/40 rounded-full blur-3xl"></div>
 
-  <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+  {/* Motion Wrapper */}
+  <motion.div
+    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+    className="relative z-10 max-w-4xl mx-auto px-6 text-center"
+  >
     <h2 className="text-4xl md:text-5xl font-extrabold text-white leading-tight">
       Ready to build your
       <span className="block text-orange-300">next big project?</span>
@@ -326,16 +406,23 @@ export default function Home() {
       high-performance digital solutions.
     </p>
 
-    <Link
-      to="/contact"
-      className="inline-flex items-center justify-center mt-10 px-12 py-4 rounded-full
-                 bg-black/90 text-orange-400 font-semibold text-lg
-                 hover:bg-black transition shadow-lg"
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.3 }}
     >
-      Contact Us Now
-    </Link>
-  </div>
+      <Link
+        to="/contact"
+        className="inline-flex items-center justify-center mt-10 px-12 py-4 rounded-full
+                   bg-black/90 text-orange-400 font-semibold text-lg
+                   hover:bg-black transition shadow-lg"
+      >
+        Contact Us Now
+      </Link>
+    </motion.div>
+  </motion.div>
 </section>
+
 
 
     </div>

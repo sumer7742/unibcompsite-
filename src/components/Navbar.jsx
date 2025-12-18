@@ -147,26 +147,52 @@ export default function Navbar() {
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden text-white"
         >
-          ☰
+         {isOpen ? "✘" : "☰"} 
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="md:hidden bg-gray-900 border-t border-gray-800 px-6 py-6 space-y-4 text-gray-300">
-          <li><Link to="/"  className="block hover:text-orange-500">Home</Link ></li>
-          <li><Link to="/Work" className="block hover:text-orange-500">Work</Link></li>
-          <li><Link to="/Services" className="block hover:text-orange-500">Services</Link></li>
-          <li><Link to="/careers" className="block hover:text-orange-500">Careers</Link></li>
-          <li>
-            <Link
-              to="/contact"
-              className="block text-center bg-orange-600 text-black py-2 rounded-full hover:bg-orange-500">
-              Contact Us
-            </Link>
-          </li>
-        </ul>
-      )}
+     {/* Mobile Menu with Animation */}
+<div
+  className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out
+  ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
+>
+  
+  <ul className="bg-gray-900 border-t border-gray-800 px-6 py-6 space-y-4 text-gray-300">
+    <li>
+      <Link  onClick={() => setIsOpen(false)} to="/" className="block hover:text-orange-500 transition">
+        Home
+      </Link>
+
+
+     
+    </li>
+    <li>
+      <Link onClick={() => setIsOpen(false)} to="/Work" className="block hover:text-orange-500 transition">
+        Work
+      </Link>
+    </li>
+    <li>
+      <Link onClick={() => setIsOpen(false)} to="/Services" className="block hover:text-orange-500 transition">
+        Services
+      </Link>
+    </li>
+    <li>
+      <Link onClick={() => setIsOpen(false)} to="/careers" className="block hover:text-orange-500 transition">
+        Careers
+      </Link>
+    </li>
+    <li>
+      <Link onClick={() => setIsOpen(false)}
+        to="/contact"
+        className="block text-center bg-orange-600 text-black py-2 rounded-full hover:bg-orange-500 transition"
+      >
+        Contact Us
+      </Link>
+    </li>
+  </ul>
+</div>
+
     </nav>
   );
 }

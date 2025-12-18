@@ -8,7 +8,8 @@ import Apply from "../pages/Apply";
 import WebDevelopment from "../pages/WebDevelopment";
 import MobileApp from "../pages/MobileApp";
 import UI from "../pages/UI";
-     import EnterpriseSolutions from "../pages/EnterpriseSolutions"
+import EnterpriseSolutions from "../pages/EnterpriseSolutions"
+
         function AppRoutes () {
             return (
        <Routes>
@@ -22,6 +23,7 @@ import UI from "../pages/UI";
          <Route path="/MobileApp" element={<MobileApp/>}/>
           <Route path="/UI" element={<UI/>}/>
            <Route path="/EnterpriseSolutions" element={<EnterpriseSolutions/>}/>
+           
         </Routes>
 
             )
