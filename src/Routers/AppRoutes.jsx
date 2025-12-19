@@ -9,6 +9,7 @@ import WebDevelopment from "../pages/WebDevelopment";
 import MobileApp from "../pages/MobileApp";
 import UI from "../pages/UI";
 import EnterpriseSolutions from "../pages/EnterpriseSolutions"
+import Upcoming from "../pages/upcoming";
 
         function AppRoutes () {
             return (
@@ -23,7 +24,7 @@ import EnterpriseSolutions from "../pages/EnterpriseSolutions"
          <Route path="/MobileApp" element={<MobileApp/>}/>
           <Route path="/UI" element={<UI/>}/>
            <Route path="/EnterpriseSolutions" element={<EnterpriseSolutions/>}/>
-           
+           <Route path="/upcoming" element={<Upcoming/>}/>
         </Routes>
 
             )

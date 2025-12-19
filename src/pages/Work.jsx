@@ -7,7 +7,8 @@ import first from "../Accets/1img.jpeg";
     import ecom from "../Accets/ecom.jpeg"
      import saas from "../Accets/saas.jpeg"
       import fin from "../Accets/fin.jpeg"
-      import work from "../Accets/work.jpeg"
+      
+      import video from "../Accets/car.mp4"
 export default function Work() {
   const fadeUp = {
     hidden: { opacity: 0, y: 50 },
@@ -23,37 +24,39 @@ export default function Work() {
     <div className="overflow-hidden">
 
       {/* HERO */}
-      <section className="relative py-32 text-center bg-gray-100 dark:bg-gray-950 overflow-hidden">
-        <motion.img
-          src={work}
-          alt="work hero"
-          className="absolute inset-0 w-full h-full object-cover opacity-10"
-          initial={{ opacity: 0, scale: 1.2 }}
-          animate={{ opacity: 0.1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+       <section className="relative h-screen flex items-center justify-center text-center overflow-hidden">
+
+        {/* Video BG */}
+        <video
+          src={video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         />
 
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-gray-900/70 to-black/90" />
+
         <motion.div
-          className="relative z-10"
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          animate="show"
           variants={stagger}
+          className="relative z-10 max-w-4xl px-6"
         >
           <motion.h1
-            className="text-5xl font-extrabold"
             variants={fadeUp}
-            transition={{ duration: 0.8 }}
+            className="text-6xl md:text-7xl font-extrabold"
           >
-            Our <span className="text-orange-500">Work</span>
+            Our <span className="text-orange-600">Work</span>
           </motion.h1>
 
           <motion.p
-            className="mt-6 max-w-3xl mx-auto text-lg text-gray-600 dark:text-gray-400"
             variants={fadeUp}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mt-6 text-lg text-gray-300"
           >
-            We design, build and scale digital products that solve real business problems.
+            We design, build and scale high-impact digital products.
           </motion.p>
         </motion.div>
       </section>
@@ -153,10 +156,11 @@ export default function Work() {
             variants={stagger}
           >
             {[
-              { title: "Fintech App", img:fin },
-              { title: "E-Commerce Platform", img:ecom },
-              { title: "SaaS Dashboard", img:saas },
+              { title: "Fintech App", img:fin , link:"https://bankmudraa.com/login-area" },
+              { title: "E-Commerce Platform", img:ecom , link:"https://unibcomp.in/" },
+              { title: "SaaS Dashboard", img:saas , link:"/Upcoming" },
             ].map((item, i) => (
+              <a key={i} href={item.link}>
               <motion.div
                 key={i}
                 className="group bg-gray-900 rounded-3xl overflow-hidden border border-gray-800 hover:border-orange-500 transition"
@@ -178,6 +182,7 @@ export default function Work() {
                   </p>
                 </div>
               </motion.div>
+              </a>
             ))}
           </motion.div>
         </div>
