@@ -7,7 +7,7 @@ import first from "../Accets/1img.jpeg";
     import ecom from "../Accets/ecom.jpeg"
      import saas from "../Accets/saas.jpeg"
       import fin from "../Accets/fin.jpeg"
-      
+    
       import video from "../Accets/car.mp4"
 export default function Work() {
   const fadeUp = {
@@ -189,35 +189,49 @@ export default function Work() {
       </section>
 
       {/* CTA */}
-      <section className="py-28 text-center bg-gradient-to-br from-orange-800 via-orange-700 to-orange-900">
-        <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
-          whileInView={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <h2 className="text-4xl font-extrabold text-white">
-            Have a project in mind?
-          </h2>
-          <p className="mt-4 text-orange-200">
-            Let’s build something great together.
-          </p>
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Link
-              to="/contact"
-              className="inline-block mt-8 px-10 py-4 rounded-full
-                bg-black text-orange-400 font-semibold
-                hover:bg-gray-900 transition"
-            >
-              Start a Project
-            </Link>
-          </motion.div>
-        </motion.div>
-      </section>
+   <section className="relative py-28 text-center  flex items-center justify-center">
+  {/* Background video */}
+  <video
+    className="absolute inset-0 w-full h-full object-cover opacity-40"
+    src={video}
+    autoPlay
+    loop
+    muted
+    playsInline
+  />
+
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-gray-900/70 to-black/90"></div>
+
+  {/* Content */}
+  <motion.div
+    className="relative z-10 max-w-2xl px-6"
+    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
+    <h2 className="text-4xl md:text-5xl font-extrabold text-white">
+      Have a project in mind?
+    </h2>
+    <p className="mt-4 text-orange-200 text-lg">
+      Let’s build something great together.
+    </p>
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ duration: 0.3 }}
+    >
+      <Link
+        to="/contact"
+        className="inline-block mt-8 px-10 py-4 rounded-full bg-black text-orange-400 font-semibold hover:bg-gray-900 transition"
+      >
+        Start a Project
+      </Link>
+    </motion.div>
+  </motion.div>
+</section>
+
     </div>
   );
 }

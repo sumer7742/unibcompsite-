@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+
+import glob from "../Accets/car3.mp4"
+
+
 // Hero slides with background images
 const heroSlides = [
   {
@@ -110,6 +114,9 @@ export default function Home() {
       
       
       </section>
+
+
+ 
 
       {/* ================= SERVICES PREVIEW ================= */}
     
@@ -381,7 +388,14 @@ export default function Home() {
 
 <section className="relative py-28 overflow-hidden
   bg-gradient-to-br from-orange-500 via-blue-400 to-orange-600">
-
+ <video
+          className="absolute inset-0 w-full h-full object-cover opacity-10"
+          src={glob}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
   {/* soft dark overlay */}
   <div className="absolute inset-0 bg-black/30"></div>
 

@@ -20,15 +20,21 @@ export default function Navbar() {
         <ul className="hidden md:flex items-center gap-12 font-medium text-gray-300">
 
           <li>
-            <Link to="/" className="hover:text-orange-500 transition duration-300">
-              Home
-            </Link>
+           <Link to="/" className="relative group transition">
+            <span className="group-hover:text-orange-500 transition">
+                Home
+             </span>
+             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-orange-500 transition-all group-hover:w-full"></span>
+          </Link>
           </li>
 
           <li>
-            <Link to="/Work" className="hover:text-orange-500 transition duration-300">
-              Work
-            </Link>
+             <Link to="/Work" className="relative group transition">
+            <span className="group-hover:text-orange-500 transition">
+                Work
+             </span>
+             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-orange-500 transition-all group-hover:w-full"></span>
+          </Link>
           </li>
 
           {/* Services Dropdown */}
@@ -126,11 +132,12 @@ export default function Navbar() {
 </li>
 
 
-          <li>
-            <Link to="/careers" className="hover:text-orange-500 transition duration-300">
-              Careers
-            </Link>
-          </li>
+        <Link to="/careers" className="relative group transition">
+            <span className="group-hover:text-orange-500 transition">
+                Careers
+             </span>
+             <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-orange-500 transition-all group-hover:w-full"></span>
+          </Link>
 
           <li>
             <Link
