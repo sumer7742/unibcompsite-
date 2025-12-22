@@ -18,6 +18,7 @@ export default function App() {
       {/* Main Content */}
       <main className="pt-20">
        <AppRoutes/>
+       
       </main>
 
       <Footer />

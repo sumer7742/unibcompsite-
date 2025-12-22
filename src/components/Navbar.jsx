@@ -5,7 +5,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
  const [dropdownOpen, setDropdownOpen] = useState(false);
   return (
-    <nav className="fixed w-full z-50 backdrop-blur-xl bg-gray-900/80 border-b border-gray-800 shadow-[0_10px_40px_rgba(0,0,0,0.4)]">
+    <nav className="fixed w-full z-50 backdrop-blur-2xl border-b border-gray-400 shadow-[0_10px_40px_rgba(0,0,0,0.6)]">
       <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
 
         {/* Logo */}
